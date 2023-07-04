@@ -3,6 +3,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 require('dotenv').config();
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 
@@ -67,6 +68,6 @@ app.post("/delete", function(req,res){
     })
 })
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("server is now live in port:3000")
 });
