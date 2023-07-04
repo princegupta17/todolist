@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
+require('dotenv').config();
 const app = express();
 
 app.set("view engine", "ejs");
@@ -9,7 +10,8 @@ app.use(bodyparser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB", {useNewUrlParser: true});
+const url = process.env.CONNECT_URL;
+mongoose.connect(url, {useNewUrlParser: true});
 
 const itemsSchema = {
     name: String
