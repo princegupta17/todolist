@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
-require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -11,7 +10,7 @@ app.use(bodyparser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-const url = process.env.CONNECT_URL;
+const url = "mongodb+srv://princegupta444555:TqpZNB5FRf6BAAtX@cluster0.z3f8qu5.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(url, {useNewUrlParser: true});
 
 const itemsSchema = {
