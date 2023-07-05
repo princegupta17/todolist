@@ -45,7 +45,7 @@ app.get("/", function(req,res){
             res.render("list", {day : day, newlistitem: founditems});
         }
     }).catch((err) => {
-        console.log(err);
+        alert(err.message);
     })
     
     
@@ -63,11 +63,12 @@ app.post("/", function(req,res){
 app.post("/delete", function(req,res){
     const deleteid = req.body.element;
     Item.findByIdAndRemove(deleteid).then(()=>{
-        console.log("success");
         res.redirect("/");
+    }).catch((err) => {
+        alert(err.message);
     })
 })
 
 app.listen(port, function(){
-    console.log("server is now live in port:3000")
+    console.log("server is now live in port:", port);
 });
