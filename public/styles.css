@@ -82,6 +82,7 @@ input[type="text"] {
   font-size: 20px;
   font-weight: 200;
   width: 313px;
+  color: white;
 }
 
 input[type="text"]:focus {
